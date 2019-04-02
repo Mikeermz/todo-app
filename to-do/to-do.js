@@ -50,4 +50,20 @@ const updateList = (description, completed = true) => {
   }
 }
 
-module.exports = { create, getList, updateList }
+const deleteToList = (description) => {
+  showDB();
+  const newList = listToDo.filter( task =>{
+    return task.description !== description
+  });
+
+  if (newList.length === listToDo.length){
+    return false;
+  } else {
+    listToDo = newList;
+    saveDB();
+    return true
+  }
+
+}
+
+module.exports = { create, getList, updateList, deleteToList }
