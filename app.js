@@ -10,7 +10,7 @@ switch (comando) {
     tasks.forEach(task => {
       console.log("========To Do==========".green)
       console.log('task: ', task.description)
-      console.log('status: ', task.complete)
+      console.log('status: ', task.completed)
       console.log("=======================".green)
     });
     break;
@@ -18,7 +18,8 @@ switch (comando) {
     toDo.create( argv.description ) 
     break;
   case 'update':
-    console.log('Update Tasks');
+    const updateTask = toDo.updateList(argv.description, argv.completed)
+    console.log(updateTask)
     break;
   default:
     console.log("Comando no reconocido");
