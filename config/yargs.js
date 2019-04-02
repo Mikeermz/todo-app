@@ -1,38 +1,26 @@
-const opts = {
-  description: {
+const description = {
     demand: true,
     alias: 'd',
     desc: 'Task to do'
-  }
 };
+const completed = {
+  default: true,
+  alias: 'c',
+  desc: 'Update task to complet or not'
+};
+
 const argv = require('yargs')
                     .command('show','Show tasks', {})
                     .command('create','Save tasks', {
-                      description: {
-                        demand: true,
-                        alias: 'd',
-                        desc: 'Task to do'
-                        }
+                      description
                       })
                     .command('delete','Delete tasks', {
-                      description: {
-                        demand: true,
-                        alias: 'd',
-                        desc: 'Task to delete'
-                      }
+                      description
                     })
                     .command('update','Update tasks', {
-                      description: {
-                        demand: true,
-                        alias: 'd',
-                        desc: 'Task to do'
-                        },
-                      completed: {
-                        default: true,
-                        alias: 'c',
-                        desc: 'Update task to complet or not'
-                        }
-                      })
+                      description,
+                      completed
+                    })
                     .help()
                     .argv
 
