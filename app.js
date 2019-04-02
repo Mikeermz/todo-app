@@ -21,6 +21,10 @@ switch (comando) {
     const updateTask = toDo.updateList(argv.description, argv.completed)
     console.log(updateTask)
     break;
+  case 'delete':
+    const deleteTask = toDo.deleteToList(argv.description)
+    console.log(deleteTask)
+    break;
   default:
     console.log("Comando no reconocido");
     break;
