@@ -20,7 +20,7 @@ const argv = require('yargs')
                         alias: 'd',
                         desc: 'Task to do'
                         },
-                      complet: {
+                      completed: {
                         default: true,
                         alias: 'c',
                         desc: 'Update task to complet or not'
