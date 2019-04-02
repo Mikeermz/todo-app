@@ -22,7 +22,7 @@ const create = (description) =>{
   showDB()
   let toDo = {
     description,
-    complete: false
+    completed: false
   }
 
   listToDo.push(toDo)
@@ -35,4 +35,19 @@ const getList = () => {
   return listToDo;
 }
 
-module.exports = { create, getList }
+const updateList = (description, completed = true) => {
+  showDB();
+  const index = listToDo.findIndex( task =>{
+    return task.description === description
+  });
+
+  if (index >= 0 ) {
+    listToDo[index].completed = completed;
+    saveDB()
+    return true
+  } else {
+    return false
+  }
+}
+
+module.exports = { create, getList, updateList }
